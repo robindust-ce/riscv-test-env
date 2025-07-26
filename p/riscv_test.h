@@ -188,7 +188,7 @@
         .globl _start;                                                  \
 _start:                                                                 \
         /* reset vector */                                              \
-        j reset_vector;                                                 \
+        j skipping;                                                 \
         .align 2;                                                       \
 trap_vector:                                                            \
         /* test whether the test came from pass/fail */                 \
@@ -246,6 +246,7 @@ reset_vector:                                                           \
         csrw mepc, t0;                                                  \
         csrr a0, mhartid;                                               \
         mret;                                                           \
+skipping:                                                               \
 1:
 
 //-----------------------------------------------------------------------
